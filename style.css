@@ -1,0 +1,24 @@
+.header-footer {
+    background-color: rgb(200, 200, 200);
+    list-style: none;
+    padding: 10px;
+}
+
+.menu-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.main-header {
+    text-align: center;
+}
+
+.description {
+    text-align: justify;
+}
+
+.frame {
+    outline-color: rgb(143, 28, 143);
+    outline-width: 10px;
+    outline-style: solid;
+}
