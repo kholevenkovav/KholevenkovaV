@@ -2,18 +2,52 @@
 <!DOCTYPE html>
 <html lang="ru">
 
-<head>
+<head>    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <title>Каталог товаров</title>
 </head>
 
 <body>
-    <ul class="header-footer">
-        <li> <a class="menu-link" href="balloon.html">Шарики в корзинке</a></li>
-        <li> <a class="menu-link" href="ball.html">Шарики с цифрами</a></li>
-    </ul>
+    <div class="main_body">
+        <h2>Товары: </h2>
+
+        <div class="b-items">
+            <div class="b-item-card">
+                <a href="balloon.html"><img class="b-item-card-img" src="balloon.jpg"></a>
+                <br>
+                <h3 class="b-item-card-name">Шарики в корзинке</h3>
+                <h3 class="b-item-card-price">1500 p.</h3>
+                <p class="b-item-card-description">Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                    Necessitatibus omnis
+                    animi blanditiis, dolores incidunt nam quae doloribus illo totam molestiae dolor, corporis
+                    perferendis! </p>
+
+                <a href="balloon.html"><button class="btn btn-outline-success card-btn">Подробнее</button></a>
+            </div>
+            <div class="b-item-card">
+                <a href="ball.html"><img class="b-item-card-img" src="ball.jpg"></a>
+                <br>
+                <h3 class="b-item-card-name">Шарики с цифрами</h3>
+                <h3 class="b-item-card-price">3000 p.</h3>
+                <p class="b-item-card-description">Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                    Necessitatibus omnis
+                    animi blanditiis, dolores incidunt nam quae doloribus illo totam molestiae dolor, corporis
+                    perferendis! </p>
+
+                <a href="ball.html"><button class="btn btn-outline-success card-btn">Подробнее</button></a>
+            </div>
+
+        </div>
+
+    </div>
     <a class="menu-link" href="index.html">На главную</a>
+    <footer>
+        <p> Автор: VK
+
+        </p>
+    </footer>
 </body>
 
 </html>
