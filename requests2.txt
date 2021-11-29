@@ -1,0 +1,8 @@
+1) SELECT User_ID FROM Accounts WHERE substr(Date_of_birth, 6) == (substr(date('now'), 6));
+Вывод списка айдишников пользователей, у которых День рождения сегодня (т. е. в день выполнения запроса), чтобы дать пользователю скидку
+2) SELECT E_mail FROM Accounts WHERE substr(Date_of_birth, 6) == (substr(date('now'), 6));
+Вывод списка почт пользователей, у которых День рождения сегодня (т. е. в день выполнения запроса) для почтовой рассылки поздравлений и информации о скидках
+3) SELECT (SELECT Items.Name FROM Items WHERE Items.Item_ID = Shopping_cart.Item_ID) AS Item_name, Count_of_items FROM Shopping_cart WHERE User_ID = 1 AND Status_of_item = "In the shopping cart";
+Вывод корзины (названий и количеств товаров) пользователя с заданным ID (для отображения в корзине в личном кабинете пользователя)
+4) SELECT Name, Price FROM Items WHERE Category = "Digit";
+Вывод списка названий товаров заданной категории и их цен (для отображения на сайте)
