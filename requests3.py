@@ -1,4 +1,4 @@
-import sqlite3
+'''import sqlite3
 
 conn = sqlite3.connect('database.db')
 
@@ -16,4 +16,15 @@ print(cursor.fetchall())
 cursor.execute("SELECT Name, Price FROM Items WHERE Category = 'Digit';")
 print(cursor.fetchall())
 
-conn.close()
+conn.close()'''
+
+import database
+
+db = database.Database("database.db")
+
+print(db.get_all_users_id_bd())
+print(db.get_all_users_e_mail_bd())
+print(db.get_shopping_cart())
+print(db.get_all_items_from_category())
+
+db.close()
