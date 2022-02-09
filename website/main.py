@@ -132,12 +132,8 @@ def dest():
     return flask.render_template("dest.html")
 
 
-def check_file():
-    return os.path.isfile("new_database.db")
-
-
 if __name__ == '__main__':
-    if not check_file():
+    if not os.path.isfile("new_database.db"):
         database.create_all()
         add_items()
     app.run(debug=True)
