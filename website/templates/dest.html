@@ -1,21 +1,12 @@
-<!DOCTYPE html>
-<html lang="ru">
+{% extends "base.html" %}
 
-<head>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
-    <meta charset="UTF-8">
-    <title>Как нас найти</title>
-</head>
+{% block title %} Как нас найти {% endblock %}
 
-<body>
-    <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A323e690583db692570791ba0514b88b12f55c4f5a8530538c5b8a15589783aad&amp;width=712&amp;height=517&amp;lang=ru_RU&amp;scroll=true"></script> 
-    <br> 
-    <a class="menu-link" href="index">На главную</a>
-    <footer>
-        <p> Автор: VK
 
-        </p>
-    </footer>
-</body>
+{% block content %}
 
-</html>
+<script type="text/javascript" charset="utf-8" async
+        src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A323e690583db692570791ba0514b88b12f55c4f5a8530538c5b8a15589783aad&amp;width=712&amp;height=517&amp;lang=ru_RU&amp;scroll=true"></script>
+<br>
+<a class="menu-link" href="index">На главную</a>
+{% endblock %}

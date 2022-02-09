@@ -8,11 +8,12 @@ footer {
 	background-color: rgb(51, 64, 189);
 	height: 40px;
 	border-radius: 5px;
+	color: white;
 }
 
 .header-list {
     list-style: none;
-    position: fixed;
+    "position: fixed;
     right: 15%;
     top: 5%;
 }
