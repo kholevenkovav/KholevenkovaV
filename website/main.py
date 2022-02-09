@@ -42,6 +42,17 @@ class ShoppingCart(database.Model):
     status_of_item = database.Column(database.String(80), nullable=False)
 
 
+class Responses(database.Model):
+    id = database.Column(database.Integer, primary_key=True)
+    name = database.Column(database.String(80), nullable=False)
+    email = database.Column(database.String(80), nullable=False)
+    text = database.Column(database.Text)
+
+
+def get_responses():
+    return Responses.query.all()[::-1]
+
+
 def add_items():
     descr = """Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perferendis, earum
                 eveniet quasi, magni itaque
@@ -81,9 +92,19 @@ def about():
     return flask.render_template("about.html")
 
 
-@app.route('/response')
-def response():
-    return flask.render_template("response.html")
+@app.route('/response', methods=['GET', 'POST'])
+def responses():
+    if flask.request.method == 'POST':
+        name = flask.request.form.get('name')
+        email = flask.request.form.get('email')
+        text = flask.request.form.get('text')
+        if name != "" and email != "" and text != "":
+            response = Responses(name=name,
+                                 email=email,
+                                 text=text)
+            database.session.add(response)
+            database.session.commit()
+    return flask.render_template("response.html", responses=get_responses())
 
 
 @app.route('/catalog')

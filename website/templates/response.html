@@ -4,19 +4,33 @@
 
 
 {% block content %}
-<form action="#">
+<form method="post">
     <ul class="header-footer">
         <legend>Расскажите о себе</legend>
         <br>
         Представьтесь <input type="text" name="name" placeholder="Ваше имя"> <br>
         Почта для обратной связи <input type="email" name="email" placeholder="Ваша почта"><br>
         Оставьте ваш отзыв, пожелания или предложения <br>
-        <textarea name="review" id="" cols="68" rows="10"></textarea>
+        <textarea name="text" id="" cols="68" rows="10"></textarea>
         <br>
         <input type="submit">
         <input type="reset">
     </ul>
     <br>
 </form>
+
+{% if responses %}
+<div class="responses-area">
+    <h3>Отзывы</h3>
+    {% for response in responses %}
+    <div class="responses">
+        <div class="name">{{response.name}}</div>
+        <div class="email">{{response.email}}</div>
+        <div class="text">{{response.text}}</div>
+    </div>
+    {% endfor %}
+</div>
+{% endif %}
+
 <a class="menu-link" href="index">На главную</a>
 {% endblock %}
