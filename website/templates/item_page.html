@@ -12,7 +12,9 @@
         <div class="description-text">
             <h2 class="description-price">Цена: {{item.price}} руб.</h2>
 
-            <button class="btn btn-outline-success description-btn">Купить</button>
+            <form method="post">
+                <input class="btn btn-outline-success description-btn" type="submit" value="Купить">
+            </form>
 
             <p> {{item.description}}
             </p>

@@ -1,4 +1,6 @@
 from website.main import database
+import hashlib
+import datetime
 
 
 class Accounts(database.Model):
@@ -9,10 +11,13 @@ class Accounts(database.Model):
     points = database.Column(database.Integer)
     address = database.Column(database.String(80), nullable=False)
     date_of_registration = database.Column(database.DateTime)
-    date_of_birthday = database.Column(database.Date)
+    date_of_birth = database.Column(database.Date)
 
-    def __repr__(self):
-        return f'{self.login}'
+    def validate(self, password):
+        return self.password == hashlib.md5(password.encode("utf8")).hexdigest()
+
+    def set_password(self, password):
+        self.password = hashlib.md5(password.encode('utf8')).hexdigest()
 
 
 class Items(database.Model):
@@ -34,6 +39,9 @@ class ShoppingCart(database.Model):
     item = database.relationship('Items', backref=database.backref('shopping_cart', lazy=False))
     count_of_items = database.Column(database.Integer, nullable=False)
     status_of_item = database.Column(database.String(80), nullable=False)
+
+    def set_not_active(self):
+        self.status_of_item = 'ordered'
 
 
 class Responses(database.Model):
@@ -82,3 +90,55 @@ def get_item(link):
         if i.link == link:
             return i
     return None
+
+
+def add_account():
+    VK = Accounts(
+        login="VK",
+        e_mail="VK1580@yandex.ru",
+        password="",
+        points=0,
+        address="",
+        date_of_registration=datetime.datetime.now(),
+        date_of_birth=datetime.datetime.now())
+    VK.set_password("1902")
+    database.session.add(VK)
+    database.session.commit()
+
+
+def get_item_by_id(id):
+    all_items = Items.query.all()
+    filtered = list(filter(lambda item: item.item_id == id, all_items))
+    return filtered[0] if len(filtered) == 1 else None
+
+
+def get_shopping_cart_for_user(user_id):
+    result = []
+    all_cart = ShoppingCart.query.all()
+    for c in all_cart:
+        if c.user_id == user_id and c.status_of_item == "in shopping cart":
+            result.append(c)
+    return result
+
+
+def get_items_from_cart_for_user(user_id):
+    result = []
+    all_cart = ShoppingCart.query.all()
+    for c in all_cart:
+        if c.user_id == user_id and c.status_of_item == "in shopping cart":
+            result.append(get_item_by_id(c.item_id))
+    return result
+
+
+def get_item_by_link(link):
+    all_items = Items.query.all()
+    filtered = list(filter(lambda item: item.link == link, all_items))
+    return filtered[0] if len(filtered) == 1 else None
+
+
+def check_item_in_cart(user_id, item_id):
+    all_active_items = ShoppingCart.query.all()
+    for ai in all_active_items:
+        if ai.user_id == user_id and ai.item_id == item_id and ai.status_of_item == "in shopping cart":
+            return True
+    return False

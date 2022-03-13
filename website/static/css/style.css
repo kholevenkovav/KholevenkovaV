@@ -33,6 +33,7 @@ footer {
 
 .list-item {
     display: inline-block;
+    padding-right: 10px;
 }
 
 .frame {
@@ -148,4 +149,102 @@ footer {
 
 .text {
     font-size: 20;
+}
+
+.login_form {
+    border-radius: 5px;
+    background-color: #4212AF;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding: 20px 15px;
+}
+
+.form-control {
+    margin-bottom: 20px;
+    height: 40px;
+}
+
+.login-button {
+	border-color: #FFD300;
+    color: #FF9200;
+    background-color: #FFFF00;
+    width: 100px;
+}
+
+.login-button:hover {
+    background-color: #FF4900;
+    border-color: #FF7800;
+}
+
+.profile {
+    margin-top: 20px;
+}
+
+.profile-item {
+    border-radius: 5px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 15px 10px;
+}
+
+.cart {
+    background-color: #CD0074;
+}
+
+.item-in-profile{
+    border-radius: 5px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    padding: 20px 20px;
+}
+
+.item-in-cart {
+    background-color: #3D53DC;
+}
+
+.buy-button {
+	border-color: #FFD300;
+    color: #FF9200;
+    background-color: #FFFF00;
+    width: 120px;
+}
+
+.buy-button:hover {
+    background-color: #FF4900;
+    border-color: #FF7800;
+}
+
+.item-in-profile>h4>a{
+    color: black;
+    text-decoration: none;
+}
+
+.item-in-cart_item {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.password_form {
+    background-color: #24D6BE;
+}
+
+.form-control {
+    margin-bottom: 20px;
+    height: 40px;
+}
+
+.profile-item-title {
+    margin-bottom: 20px;
+}
+
+.change-button {
+	border-color: #FFD300;
+    color: #FF9200;
+    background-color: #FFFF00;
+    width: 120px;
+}
+
+.change-button:hover {
+    background-color: #FF4900;
+    border-color: #FF7800;
 }

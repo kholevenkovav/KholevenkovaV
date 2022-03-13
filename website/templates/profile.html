@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}Профиль{% endblock %}
+
+
+{% block head %}
+{{ super() }}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="main_body">
+    <div class="profile">
+        <div class="profile-item cart">
+            <h3 class="profile-item-title "> Корзина: </h3>
+
+            {% for item in cart%}
+            <div class="item-in-profile item-in-cart">
+                <h4><a href="item/{{item.link}}">{{item.name}}</a></h4>
+                <p class="item-in-cart_item">Цена: {{item.price}} рублей</p>
+                <p class="item-in-cart_item">{{item.description}}</p>
+            </div>
+            {% endfor %}
+
+            <form method="post" class="">
+                <input type="submit" class="btn btn-outline-primary buy-button" value="Купить все">
+            </form>
+        </div>
+
+        <form method="post" class="profile-item password_form">
+            <h3 class="profile-item-title "> Сменить пароль </h3>
+            <input type="password" class="form-control" name="old_password"
+                   placeholder="Старый пароль">
+            <input type="password" class="form-control" name="new_password"
+                   placeholder="Новый пароль" style="margin-top: 10px;">
+            <input type="submit" class="btn btn-outline-primary change-button" value="Сменить"
+            >
+        </form>
+
+
+    </div>
+</div>
+{% endblock %}
